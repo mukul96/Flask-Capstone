@@ -5,7 +5,7 @@ import json
 from flask_cors import CORS
 
 from .models import setup_db, Actor, Movie
-from .auth.auth import AuthError, requires_auth
+from .authauth.auth import AuthError, requires_auth
 
 
 def create_app(test_config=None):
@@ -26,7 +26,8 @@ def create_app(test_config=None):
     # ROUTES
 
     @app.route('/actors')
-    def get_actors():
+    @requires_auth('get:actors')
+    def get_actors(self):
 
         all_actors = Actor.query.order_by(Actor.id).all()
 
@@ -154,10 +155,11 @@ def create_app(test_config=None):
         }), 200
 
     @app.route('/movies')
-    def get_movies():
+    @requires_auth('get:movies')
+    def get_movies(self):
         try:
             all_movies = Movie.query.order_by(Movie.id).all()
-            print(len(all_movies))
+            #print(len(all_movies))
             if len(all_movies) == 0:
                 abort(404)
 
@@ -171,7 +173,7 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/movies', methods=['POST'])
-    #@requires_auth('post:movies')
+    @requires_auth('post:movies')
     def createmovie(self):
 
         body = request.get_json()
@@ -197,7 +199,7 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
-    #@requires_auth('patch:movies')
+    @requires_auth('patch:movies')
     def update_movie(self, movie_id):
 
         movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
@@ -234,7 +236,7 @@ def create_app(test_config=None):
             abort(422)
 
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
-    #@requires_auth('delete:movies')
+    @requires_auth('delete:movies')
     def delete_movie(self, movie_id):
 
         movie = Movie.query.filter(Movie.id == movie_id).one_or_none()

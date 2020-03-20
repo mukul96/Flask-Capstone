@@ -1,8 +1,8 @@
-# FSND Casting Agency Capstone project
+# FSND Casting Agency Capstone Bollywood project
 
 ## capstone project for the udacity full stack nanodegree program.
 
-**Heroku link:** (https://capstone-fsnd.herokuapp.com/)
+**Heroku link:** (https://mukul-fsnd-capstone.herokuapp.com/)
 
 ## Getting Started
 
@@ -86,12 +86,12 @@ reponse = {
 success: True,
 actors: [
           {
-            name: "Kelvin Hart",
+            name: "Salman Khan",
             role: "cast",
             gender: "male",
           },
           {
-            name: "Kelvin Hart",
+            name: "Aamir Khan",
             role: "cast",
             gender: "male",
           }
@@ -102,10 +102,10 @@ actors: [
 POST '/actors'
 
 payload = {
-     name: "Kelvin Hart",
-    role: "cast",
-    gender: "male",
-  }
+            name: "Salman Khan",
+            role: "cast",
+            gender: "male",
+          }
 response = {
   success: True,
   actor:{  
@@ -121,11 +121,11 @@ params = <int:actor_id>
 
 response = {
   success: True,
-  actor:{  
-    name: "Kelvin Hart",
-    role: "cast",
-    gender: "male"
-   }
+  actor:{
+            name: "Salman Khan",
+            role: "cast",
+            gender: "male",
+          }
 }
 
 DELETE '/actors/<int:actor_id>'
@@ -143,15 +143,15 @@ response = {
 success: True,
 movies: [
           {
-            title: "Avengers",
+            title: "Dabangg",
             year: 2019,
-            director: "Kenny Faggie",
+            director: "Kabir Khan",
             genre: "fiction"
           },
           {   
-            title: "Avengers",
+            title: "PK",
             year: 2019,
-            director: "Kenny Faggie",
+            director: "Rajkumar hirani",
             genre: "fiction"
           }
         ]
@@ -160,20 +160,20 @@ movies: [
 
 POST '/movies'
 
-payload = {
-   title: "Avengers",
-    year: 2019,
-    director: "Kenny Faggie",
-    genre: "fiction"
-  }
+payload = {   
+            title: "PK",
+            year: 2019,
+            director: "Rajkumar hirani",
+            genre: "fiction"
+          }
 response = {
   success: True,
-  movie: {
-     title: "Avengers",
-    year: 2019,
-    director: "Kenny Faggie",
-    genre: "fiction"
- }
+  movie:{   
+            title: "PK",
+            year: 2019,
+            director: "Rajkumar hirani",
+            genre: "fiction"
+          }
 }
 
 PATCH '/movies/<int:movie_id>'
@@ -183,9 +183,9 @@ params = <int:movie_id>
 response = {
 success: True,
 movies: {   
-            title: "Avengers",
+            title: "PK",
             year: 2019,
-            director: "Kenny Faggie",
+            director: "Rajkumar hirani",
             genre: "fiction"
           }
         

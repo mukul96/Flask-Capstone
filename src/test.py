@@ -5,10 +5,9 @@ from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
 from api import APP
 from models import db
-# print(os.environ['DATABASE_URI'])
 
 
-# load env
+# from this loading the environment variables for the different roles of tokens as specified in the readme
 load_dotenv()
 
 
@@ -24,26 +23,19 @@ class CastingAgencyTestCase(unittest.TestCase):
         self.casting_director = os.getenv('CASTING_DIRECTOR')
         self.executive_producer = os.getenv('EXECUTIVE_PRODUCER')
         self.new_actor = {
-            "name": "Kelvin Hart",
+            "name": "Salman Khan",
             "role": "cast",
             "gender": "male",
         }
         self.movies = {
-            "title": "Avengers",
-            "year": 2019,
-            "director": "Kenny Faggie",
+            "title": "Dabangg",
+            "year": 2020,
+            "director": "Kabir khan",
             "genre": "fiction"
         }
-        db.drop_all()
+        db.droll()
         db.create_all()
-        # binds the app to the current context
-        # with self.app.app_context():
-        #     self.db = SQLAlchemy()
-        #     self.db.init_app(self.app)
-        #    # create all tables
-        #     self.db.drop_all()
-        #     self.db.create_all()
-
+        
     def tearDown(self):
         pass
 
