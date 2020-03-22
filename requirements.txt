@@ -21,3 +21,4 @@ wrapt==1.11.1
 Flask-Cors==3.0.8
 gunicorn==20.0.2
 python-dotenv
+jwt
