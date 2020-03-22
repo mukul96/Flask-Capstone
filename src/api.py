@@ -15,7 +15,7 @@ LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO')
 
 def create_app(test_config=None):
     app = Flask(__name__)
-    setup_db(app)
+    
     # Set up CORS
     CORS(app)
 
